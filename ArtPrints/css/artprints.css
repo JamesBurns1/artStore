@@ -1,0 +1,544 @@
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    margin: 0;
+}
+
+/* Styling for the header */
+header {
+    text-align: center;
+    padding: 20px;
+    background-color: #f4f4f4;
+    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.logo {
+    font-family: 'Dancing Script', cursive;
+    font-size: 50px;
+    font-weight: bold;
+    color: #333333;
+    text-decoration: none;
+    margin: 0;
+}
+
+/* Styling for the primary navigation */
+nav.primary-navigation {
+    margin: 0;
+    display: block;
+    padding: 40px 0 0 0;
+    text-align: center;
+    font-size: 16px;
+  }
+  
+  nav.primary-navigation ul li {
+    list-style: none;
+    margin: 0 20px;
+    border-left: 2px solid #CC5500;
+    display: inline-block;
+    padding: 0 30px;
+    position: relative;
+    text-decoration: none;
+    text-align: center;
+    font-family: arvo;
+    z-index: 9;
+  }
+  
+  nav.primary-navigation li a {
+    color: black;
+  }
+  
+  nav.primary-navigation li a:hover {
+    color: #CC5500;
+  }
+  
+  nav.primary-navigation li:hover {
+    cursor: pointer;
+  }
+  
+  nav.primary-navigation ul li ul {
+    visibility: hidden;
+    opacity: 0;
+    position: absolute;
+    padding-left: 0;
+    left: 0;
+    display: none;
+    background: white;
+  }
+  
+  nav.primary-navigation ul li:hover > ul,
+  nav.primary-navigation ul li ul:hover {
+    visibility: visible;
+    opacity: 1;
+    display: block;
+    min-width: 250px;
+    text-align: left;
+    padding-top: 20px;
+    box-shadow: 0px 3px 5px -1px #888;
+  }
+  
+  nav.primary-navigation ul li ul li {
+    clear: both;
+    width: 100%;
+    text-align: left;
+    margin-bottom: 20px;
+    border-style: none;
+  }
+  
+  nav.primary-navigation ul li ul li a:hover {
+    padding-left: 10px;
+    border-left: 2px solid #CC5500;
+    transition: all 0.3s ease;
+  }
+  
+  /* Global link styling */
+  a {
+    text-decoration: none;
+  }
+  
+  a:hover {
+    color: #CC5500;
+  }
+  
+  nav.primary-navigation ul li ul li a {
+    transition: all 0.5s ease;
+  }
+  
+  
+/* Styling for section titles */
+.sectionTitle {
+    font-size: 32px;
+    font-weight: 50;
+    margin-left: 30px;
+    margin-bottom: 20px;
+    color: #464646da; /* Charcoal color */
+    font-family: 'Roboto', sans-serif;
+    letter-spacing: 2px; /* Add spacing between letters */
+    padding-bottom: 10px;
+}
+
+.exploreText {
+    text-align: center;
+    font-size: 18px;
+    color: #555;
+    margin-top: 20px;
+    line-height: 1.5;
+    font-family: 'Roboto', sans-serif;
+}
+
+
+/* Styling for the genre grid section */
+.genreSection {
+    width: 100%; /* Make the section take up the full width */
+    padding: 0; /* Remove any padding that might be affecting width */
+    box-sizing: border-box; /* Include padding and border in total width */
+}
+
+
+.genreGrid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* 3 columns by default */
+    gap: 20px; /* Gap between grid items */
+    margin-top: 40px; /* Add some spacing from the about section */
+    max-width: 70%;
+    margin: 0 auto; /* Center the grid horizontally */
+}
+
+.genreItem {
+    position: relative;
+    overflow: hidden;
+    border-radius: 5px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+    cursor: pointer;
+    padding: 5px;
+    border: 4px solid #977d5ccb;
+    background-color: #f4f4f4;
+}
+
+.genreItem img {
+    width: 100%;
+    height: 250px;
+    object-fit: cover;
+  
+}
+
+.genreName {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background-color: rgba(255, 255, 255, 0.9);
+    color: #333333; 
+    padding: 10px;
+    text-align: center;
+    font-size: 16px;
+    font-weight: bold;
+    border-radius: 0 0 10px 10px;
+    opacity: 0; /* Initially hidden */
+    transition: opacity 0.3s ease-in-out;
+}
+
+.genreItem:hover {
+    transform: scale(1.05);
+    box-shadow: 0 8px 12px rgba(0, 0, 0, 0.2);
+}
+
+.genreItem:hover .genreName {
+    opacity: 1; /* Show genre name on hover */
+}
+
+/* Regular menu for larger screens */
+.menuLarge ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.menuLarge ul li {
+    display: inline-block;
+    margin: 0 20px;
+}
+
+.menuLarge ul li a {
+    color: black;
+    text-decoration: none;
+}
+
+/* Responsive menu for smaller screens */
+.menuSmall {
+    display: none; /* Initially hidden */
+}
+
+.homeIcon,
+.menuIcon {
+    display: inline-block;
+    cursor: pointer;
+    margin: 0 10px;
+    position: relative;
+}
+
+.responsiveDropdown {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background-color: #fefefe;
+    border: 1px solid #888;
+    padding: 10px;
+    width: 200px;
+}
+
+.responsiveDropdown.show {
+    display: block;
+}
+
+/* Icon styling */
+.fa-solid {
+    font-family: "Font Awesome 6 Solid", sans-serif;
+    font-weight: 900;
+}
+
+.fa-house:before {
+    content: "\f015";
+}
+
+.fa-bars:before {
+    content: "\f0c9";
+}
+
+/* Media query for smaller screens */
+@media (max-width: 768px) {
+    .menuLarge {
+        display: none;
+    }
+
+    .menuSmall {
+        display: contents;
+    }
+
+    .responsiveDropdown {
+        top: 100%; /* Adjust dropdown position */
+        left: -10px; /* Adjust dropdown position */
+    }
+}
+
+
+
+/* Styling for art display in separate html */
+.artDisplay {
+    display: flex;
+    justify-content: center;
+    
+}
+
+.mainImage {
+    width: 40%;
+  
+    margin-right: 20px; /* Add spacing between main image and previews */
+    display: flex; /* Use flex to vertically align the image */
+    align-items: center; /* Vertically center the image */
+    padding-bottom: 15%;
+}
+
+.mainImage img {
+    max-width: 50%; /* Allow the image to determine its width */ 
+    padding: 5px;
+    border: 4px solid #977d5ccb;
+    background-color: #f0eeeee7;
+}
+
+.previewImages {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start; /* Align previews to the top */
+    align-items: flex-end; /* Align previews to the right */
+}
+
+.preview {
+    width: 100px; /* Adjust the width of the preview images */
+    height: auto;
+    margin-bottom: 10px;
+    cursor: pointer;
+    transition: opacity 0.3s ease-in-out;
+}
+
+.preview img {
+    width: 100%; /* Make sure the image fills the available width */
+    height: auto;
+    object-fit: cover;
+    padding: 2px;
+    border: 4px solid #977d5ccb;
+    background-color: #f4f4f4;
+}
+
+/* Apply opacity to preview images on hover */
+.preview:hover {
+    opacity: 0.7;
+}
+
+/* Style for the art name and price */
+.artDetails {
+    text-align: center;
+    margin-top: 10px;
+    color: #363636e0;
+    padding-left: 20px;
+    padding-right: 40%;
+    
+}
+
+.artName {
+    font-size: 18px;
+    font-weight: bold;
+    margin: 5px 0;
+}
+
+.artPrice {
+    font-size: 16px;
+    margin: 5px 0;
+}
+
+/* About Page */
+.aboutText {
+    margin: 0 auto;
+    margin-top: 40px;
+    margin-bottom: 80px;
+    width: 33%;
+    font-size: 18px;
+    font-family: 'Roboto', sans-serif;
+    line-height: 2.0;
+    color: #333333;
+}
+
+.myBtn {
+    background-color: #CC5500;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    padding: 5% 8%;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .myBtn:hover {
+    background-color: #FF6600;
+  }
+  
+/* The Modal (background) */
+.modal {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 9; /* Sit on top */
+    padding-top: 100px; /* Location of the box */
+    left: 0;
+    top: 0;
+    width:100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgb(0,0,0); /* Fallback color */
+    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+    transition: ease-in 3s;
+    
+  }
+  
+  .modal-content {
+    background-color: #ffffff;
+    margin: auto;
+    padding: 40px;
+    border: 2px solid #333333;
+    width: 60%;
+    border-radius: 10px;
+    box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.2);
+    font-family: Arial, sans-serif;
+}
+
+.close {
+    color: #333333;
+    float: right;
+    font-size: 24px;
+    font-weight: bold;
+    transition: color 0.3s ease;
+}
+
+.close:hover,
+.close:focus {
+    color: #555555;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.payTitle {
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 20px;
+    color: #333333;
+}
+
+.payInput {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 20px;
+    border: 1px solid #cccccc;
+    border-radius: 4px;
+    font-size: 14px;
+}
+
+.cardIcons {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+.cardIcon {
+    width: 30px;
+    height: 30px;
+}
+
+.cardInfo {
+    display: flex;
+    gap: 10px;
+}
+
+.payButton {
+    background-color: #CC5500;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.payButton:hover {
+    background-color: #FF6600;
+}
+
+
+/* Styling for the footer */
+footer {
+    background-color: #f4f4f4;
+    padding: 20px 0;
+    text-align: center;
+    font-size: 14px;
+    color: #777777;
+    
+}
+
+
+/* Styling for footer links */
+footer a {
+    color: #777777;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+footer a:hover {
+    color: #333333;
+}
+
+/* Styling for the footerRight section */
+.footerRight {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.footerRightMenu {
+    flex-basis: calc(50% - 20px);
+    padding: 0 20px;
+    float: right;
+}
+
+.fMenuTitle {
+    font-family: 'Roboto', sans-serif;
+    font-size: 24px;
+    margin-bottom: 10px;
+}
+
+.fMail {
+    display: flex;
+    align-items: center;
+}
+
+.fInput {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    margin-right: 10px;
+}
+
+.fButton {
+    background-color: #CC5500;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    padding: 8px 16px;
+    cursor: pointer;
+}
+
+/* Styling for the fIcons */
+.fIcons {
+    gap: 10px;
+}
+
+.fIcon {
+    width: 30px;
+    height: 30px;
+}
+
+/* Styling for the footerBottom section */
+.footerBottom {
+    margin-top: 20px;
+}
+
+.footerSnippet {
+    display: inline-block;
+    margin: 0 10px;
+    padding: 10px;
+}
